@@ -25,7 +25,7 @@ class Application(Frame):
         self.button_clicks += 1
         self.button1["text"] = "Total Clicks: " + str(self.button_clicks)
 
-# Main program functionality        
+# Main program functionality
 main_window = Tk()
 main_window.title("Lazy buttons")
 main_window.geometry("400x200")
