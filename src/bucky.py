@@ -1,1 +1,2 @@
-print("Hello from a file")
+x=input("Enter name: ")
+print("Hello " + x)
