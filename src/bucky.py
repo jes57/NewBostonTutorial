@@ -1,39 +1,32 @@
-# Demonstrates how to use tuples
+# Tuple Program
+import random
 
-# Create a tuple
-inventory = ()
+# Immutable tuple to store words
+WORDS = ("python", "easy", "apples", "blueberries", "java", "html", "inventory")
 
-if not inventory:
-	print("You are empty handed")
+# Chose a random word from the list
+word = random.choice(WORDS)
 
-input("\nPress the enter key to continue.")
+# The correct word
+correct = word
 
-# Add stuff to inventory
-inventory = (
-	"apples",
-	"blueberries",
-	"helmet",
-	"potion")
+# Jumble the word
+jumble = ""
 
-print("\nThe tuple inventory is: \n", inventory)
+while word:
+	position = random.randrange(len(word))
+	jumble += word[position]
+	word = word[:position] + word[(position + 1):]
 
-# Print each separately
-print("\nYour items are:")
-for item in inventory:
-    print(item)
+print("The word is: ", jumble)
+guess = input("Guess: ")
+guess = guess.lower()
+while (guess != correct) and (guess != ""):
+	print("The word is: ", jumble)
+	print("Sorry that is not correct")
+	guess = input("Guess: ")
+	guess = guess.lower()
 
-# check the length
-print("You have ", len(inventory), " items")
+if guess == correct:
+	print("That's it! You win")
 
-# If statements to check contents
-if "potion" in inventory:
-	print("You brought your potion right?\n")
-else:
-	print("Suck it!")
-
-if "drugs" in inventory:
-	print("Drugs!")
-else:
-	print("\nno drugs")
-
-print("\nPress enter to quit.")
