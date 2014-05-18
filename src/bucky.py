@@ -15,14 +15,14 @@ class Application(Frame):
     def create_widgets(self):
         """ Create 3 buttons that displays number of clicks"""
         # Create the first button
-        self.button1 = Button(self)
-        self.button1["text"] = "Total Clicks: 0"
+        self.button1            = Button(self)
+        self.button1["text"]    = "Total Clicks: 0"
         self.button1["command"] = self.update_count # Bind event handler
         self.button1.grid()
 
     def update_count(self):
         """ Increase the click count and display the new total"""
-        self.button_clicks += 1
+        self.button_clicks   += 1
         self.button1["text"] = "Total Clicks: " + str(self.button_clicks)
 
 # Main program functionality
