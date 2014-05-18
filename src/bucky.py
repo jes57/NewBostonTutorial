@@ -1,36 +1,39 @@
-# Using a class to access tkinter
+# Demonstrates how to use tuples
 
-from tkinter import *
+# Create a tuple
+inventory = ()
 
-class Application(Frame):
-    """ A GUI application with three buttons. """
+if not inventory:
+	print("You are empty handed")
 
-    def __init__(self, master):
-        """ Initializes the Frame"""
-        Frame.__init__(self, master)
-        self.grid()
-        self.button_clicks = 0  # count the number of button clicks
-        self.create_widgets()
+input("\nPress the enter key to continue.")
 
-    def create_widgets(self):
-        """ Create 3 buttons that displays number of clicks"""
-        # Create the first button
-        self.button1            = Button(self)
-        self.button1["text"]    = "Total Clicks: 0"
-        self.button1["command"] = self.update_count # Bind event handler
-        self.button1.grid()
+# Add stuff to inventory
+inventory = (
+	"apples",
+	"blueberries",
+	"helmet",
+	"potion")
 
-    def update_count(self):
-        """ Increase the click count and display the new total"""
-        self.button_clicks   += 1
-        self.button1["text"] = "Total Clicks: " + str(self.button_clicks)
+print("\nThe tuple inventory is: \n", inventory)
 
-# Main program functionality
-main_window = Tk()
-main_window.title("Lazy buttons")
-main_window.geometry("400x200")
+# Print each separately
+print("\nYour items are:")
+for item in inventory:
+    print(item)
 
-# Use Application class in place of Frame class because we overloaded it
-app = Application(main_window)
+# check the length
+print("You have ", len(inventory), " items")
 
-main_window.mainloop()
+# If statements to check contents
+if "potion" in inventory:
+	print("You brought your potion right?\n")
+else:
+	print("Suck it!")
+
+if "drugs" in inventory:
+	print("Drugs!")
+else:
+	print("\nno drugs")
+
+print("\nPress enter to quit.")
